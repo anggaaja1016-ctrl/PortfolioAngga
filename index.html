@@ -22,15 +22,15 @@
           },
           colors: {
             brand: {
-              navyDark: '#0B1120',
-              navySlate: '#0F172A',
-              navyCard: '#1E293B',
-              navyBorder: 'rgba(255, 255, 255, 0.12)',
-              softOffwhite: '#F1F5F9',
-              slateLight: '#94A3B8',
-              appleBlue: '#38BDF8',
-              accentBlue: '#2563EB',
-              glowBlue: 'rgba(56, 189, 248, 0.15)'
+              navyDark: '#FAFAFA',       /* Pure / Warm White Background */
+              navySlate: '#F1F5F9',      /* Soft Slate Card Background */
+              navyCard: '#FFFFFF',       /* Crisp Pure White Card */
+              navyBorder: 'rgba(0, 0, 0, 0.08)',
+              softOffwhite: '#0F172A',    /* Main Dark Slate Text */
+              slateLight: '#475569',     /* Secondary Text */
+              appleBlue: '#2563EB',      /* Vibrant Royal Blue Accent */
+              accentBlue: '#3B82F6',
+              glowBlue: 'rgba(37, 99, 235, 0.12)'
             }
           },
           animation: {
@@ -40,8 +40,8 @@
           },
           keyframes: {
             glowPulse: {
-              '0%': { opacity: '0.3', transform: 'scale(0.98)' },
-              '100%': { opacity: '0.75', transform: 'scale(1.05)' }
+              '0%': { opacity: '0.4', transform: 'scale(0.98)' },
+              '100%': { opacity: '0.8', transform: 'scale(1.05)' }
             },
             floatSlow: {
               '0%, 100%': { transform: 'translateY(0px)' },
@@ -63,67 +63,68 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <style>
-    /* Custom Scrollbar */
+    /* Custom Scrollbar for Light Theme */
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0B1120;
+      background: #F8FAFC;
     }
     ::-webkit-scrollbar-thumb {
-      background: #1E293B;
+      background: #CBD5E1;
       border-radius: 9999px;
-      border: 2px solid #0B1120;
+      border: 2px solid #F8FAFC;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
+      background: #94A3B8;
     }
 
-    /* Cinematic Film Grain Overlay */
+    /* Cinematic Light Grain Overlay */
     .film-grain {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     }
 
-    /* Premium Glassmorphism Cards */
+    /* Premium White Glassmorphism Cards */
     .glass-panel {
-      background: rgba(15, 23, 42, 0.65);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     }
 
     .glass-card {
-      background: rgba(30, 41, 59, 0.45);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.07);
       transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
     .glass-card:hover {
-      background: rgba(30, 41, 59, 0.7);
-      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(37, 99, 235, 0.3);
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .glass-pill {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.04);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    /* Typography Gradients */
+    /* Typography Gradients for White Theme */
     .text-gradient-silver {
-      background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 60%, #334155 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .text-gradient-blue {
-      background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 60%, #2563EB 100%);
+      background: linear-gradient(135deg, #1E293B 0%, #2563EB 60%, #0284C7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -171,11 +172,11 @@
         {
           id: "exp-1",
           role: "Video Editor",
-          company: "Guide Hub & MLBB NEWS Update Agency",
+          company: "Guide Hub Agency",
           period: "2023 — Present",
           highlight: "Channel Growth 0 → 3K+ Subscribers",
-          description: "Editing video secara konsisten untuk channel YouTube Guide Hub & agensi MLBB NEWS. Berkontribusi aktif mengembangkan channel dari 0 hingga 3K+ subscribers dengan memprioritaskan visual hook, penceritaan cepat (fast pacing), efek suara presisi, dan retensi penonton tinggi.",
-          tags: ["YouTube Editing", "Channel Growth", "Gaming Highlights", "Pacing & Motion"]
+          description: "Editing video secara konsisten untuk channel YouTube Guide Hub. Berkontribusi aktif mengembangkan channel dari 0 hingga 3K+ subscribers dengan memprioritaskan visual hook, penceritaan cepat (fast pacing), efek suara presisi, dan retensi penonton tinggi.",
+          tags: ["YouTube Editing", "Channel Growth", "Content Highlights", "Pacing & Motion"]
         },
         {
           id: "exp-2",
@@ -197,11 +198,14 @@
         }
       ],
 
-      showreel: {
-        title: "SELECTED SHOWREEL 2023-2026",
-        duration: "02:45",
-        subtitle: "Kumpulan karya terbaik dalam editing video, film pendek, dokumenter, vlog budaya, dan konten YouTube berenergi tinggi.",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+      // TEMPAT UTAMA UNTUK MELETAKKAN VIDEO ANDA (Main Embed Video Section)
+      featuredVideo: {
+        title: "VIDEO UNGGULAN SAYA / FEATURED WORK",
+        subtitle: "Ganti link di bawah ini dengan video YouTube, Google Drive, atau file MP4 milik Anda.",
+        // Pilihan tipe video: 'youtube', 'drive', atau 'mp4'
+        type: "mp4", 
+        // Masukkan URL Embed Video Anda di sini:
+        url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
         poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1600"
       },
 
@@ -210,18 +214,18 @@
           id: "01",
           number: "01",
           title: "Guide Hub YouTube Growth Series",
-          client: "Guide Hub / MLBB NEWS",
-          category: "YouTube & Gaming Content",
+          client: "Guide Hub Agency",
+          category: "YouTube Content",
           role: "Video Editor · Content Strategy",
           services: "Retensive Pacing · Sound Design · Motion Hooks",
           year: "2023 — 2026",
-          videoType: "youtube", // 'youtube', 'drive', or 'mp4'
-          videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with real YouTube embed URL
+          videoType: "mp4", 
+          videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
           thumbnail: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200",
-          description: "Seri editisasi konten YouTube untuk channel Guide Hub dan agensi MLBB NEWS Update. Berhasil memicu pertumbuhan organik channel dari nol hingga melampaui 3.000 subscriber dengan strategi micro-pacing dan grafik interaktif.",
+          description: "Seri editisasi konten YouTube untuk channel Guide Hub. Berhasil memicu pertumbuhan organik channel dari nol hingga melampaui 3.000 subscriber dengan strategi micro-pacing dan grafik interaktif.",
           keyPoints: [
             "Optimalisasi retensi penonton melalui ritme potong cepat (jump-cut) & visual hooks 5 detik pertama",
-            "Penyelarasan efek suara game, dialog jernih, dan musik latar bertempo dinamis",
+            "Penyelarasan efek suara, dialog jernih, dan musik latar bertempo dinamis",
             "Integrasi motion graphics pendukung informasi dan call-to-action"
           ]
         },
@@ -285,25 +289,6 @@
         {
           id: "05",
           number: "05",
-          title: "MLBB Competitive Highlights",
-          client: "MLBB NEWS Agency",
-          category: "Esports & Motion Content",
-          role: "Video Editor · Audio Sync",
-          services: "Beat Matching · FX Layers · Fast Pacing",
-          year: "2024 — 2026",
-          videoType: "mp4",
-          videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyflights.mp4",
-          thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=1200",
-          description: "Video sorotan turnamen Mobile Legends berenergi tinggi. Pemotongan momen penting (clutch moments) diselaraskan secara presisi dengan beat musik dan efek visual dramatis.",
-          keyPoints: [
-            "Sync adegan aksi pertempuran dengan tempo musik latar (beat matching)",
-            "Efek transisi kecepatan (speed ramping) yang mulus",
-            "Desain audio berjenjang untuk impact efek serangan"
-          ]
-        },
-        {
-          id: "06",
-          number: "06",
           title: "Digital Creator Reels & Montages",
           client: "Independent Content Creators",
           category: "Digital Content Showcase",
@@ -408,11 +393,11 @@
           }}
         >
           {isBig ? (
-            <div className="-translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-slate-900/80 backdrop-blur-md border border-brand-appleBlue/50 flex items-center justify-center text-xs font-mono tracking-widest text-brand-appleBlue shadow-2xl transition-all duration-300 scale-100 animate-pulse">
+            <div className="-translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-slate-900/90 backdrop-blur-md border border-brand-appleBlue flex items-center justify-center text-xs font-mono tracking-widest text-white shadow-2xl transition-all duration-300 scale-100 animate-pulse">
               <span className="font-semibold text-center leading-tight px-2">{cursorText || 'WATCH'}</span>
             </div>
           ) : (
-            <div className="-translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-appleBlue/90 backdrop-blur-sm shadow-[0_0_15px_rgba(56,189,248,0.8)] border border-white/60 transition-all duration-150"></div>
+            <div className="-translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-appleBlue backdrop-blur-sm shadow-[0_0_15px_rgba(37,99,235,0.6)] border border-white transition-all duration-150"></div>
           )}
         </div>
       );
@@ -431,6 +416,7 @@
       }, []);
 
       const navLinks = [
+        { label: 'Video Player', href: '#video-showcase' },
         { label: 'Work', href: '#work' },
         { label: 'Experience', href: '#experience' },
         { label: 'About', href: '#about' },
@@ -449,17 +435,17 @@
                 href="#hero" 
                 className={`pointer-events-auto px-4 py-2.5 rounded-full flex items-center gap-3 transition-all duration-300 ${
                   scrolled 
-                    ? 'bg-brand-navySlate/90 backdrop-blur-xl border border-white/10 shadow-lg' 
-                    : 'bg-brand-navySlate/50 backdrop-blur-md border border-white/10'
+                    ? 'bg-white/90 backdrop-blur-xl border border-slate-200 shadow-lg' 
+                    : 'bg-white/60 backdrop-blur-md border border-slate-200/80'
                 }`}
                 onMouseEnter={() => setCursorState('HOVER_LINK')}
                 onMouseLeave={() => setCursorState('DEFAULT')}
               >
                 <div className="w-2.5 h-2.5 rounded-full bg-brand-appleBlue animate-ping opacity-80"></div>
-                <span className="font-bold text-sm md:text-base tracking-tight text-white font-mono">
+                <span className="font-bold text-sm md:text-base tracking-tight text-slate-900 font-mono">
                   ANGGA OKTAVIANTO
                 </span>
-                <span className="hidden sm:inline-block text-[11px] text-brand-appleBlue font-mono pl-2 border-l border-white/15">
+                <span className="hidden sm:inline-block text-[11px] text-brand-appleBlue font-mono pl-2 border-l border-slate-200">
                   EDITOR
                 </span>
               </a>
@@ -467,14 +453,14 @@
               {/* Desktop Nav Items */}
               <nav className={`pointer-events-auto hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-300 ${
                 scrolled 
-                  ? 'bg-brand-navySlate/95 backdrop-blur-xl border border-white/10 shadow-2xl' 
-                  : 'bg-brand-navySlate/60 backdrop-blur-md border border-white/10'
+                  ? 'bg-white/95 backdrop-blur-xl border border-slate-200 shadow-xl' 
+                  : 'bg-white/70 backdrop-blur-md border border-slate-200'
               }`}>
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="px-4 py-2 rounded-full text-xs font-mono tracking-wider text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-200"
+                    className="px-4 py-2 rounded-full text-xs font-mono tracking-wider text-slate-700 hover:text-brand-appleBlue hover:bg-slate-100 transition-all duration-200"
                     onMouseEnter={() => setCursorState('HOVER_LINK')}
                     onMouseLeave={() => setCursorState('DEFAULT')}
                   >
@@ -487,7 +473,7 @@
               <div className="pointer-events-auto flex items-center gap-3">
                 <a
                   href="#contact"
-                  className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-appleBlue text-brand-navyDark text-xs font-bold tracking-wide hover:bg-white transition-all duration-300 shadow-lg hover:shadow-brand-appleBlue/30"
+                  className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-appleBlue text-white text-xs font-bold tracking-wide hover:bg-slate-900 transition-all duration-300 shadow-md hover:shadow-lg"
                   onMouseEnter={() => setCursorState('HOVER_LINK')}
                   onMouseLeave={() => setCursorState('DEFAULT')}
                 >
@@ -497,7 +483,7 @@
                 {/* Mobile Hamburger Button */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="md:hidden p-3 rounded-full bg-brand-navySlate/80 backdrop-blur-xl border border-white/15 text-white"
+                  className="md:hidden p-3 rounded-full bg-white backdrop-blur-xl border border-slate-200 text-slate-900 shadow-md"
                   aria-label="Toggle Navigation Menu"
                 >
                   {mobileMenuOpen ? (
@@ -513,14 +499,14 @@
 
           {/* Mobile Glass Menu Overlay */}
           {mobileMenuOpen && (
-            <div className="fixed inset-0 z-30 bg-brand-navyDark/95 backdrop-blur-2xl flex flex-col justify-center items-center px-6 md:hidden transition-all duration-300">
+            <div className="fixed inset-0 z-30 bg-white/95 backdrop-blur-2xl flex flex-col justify-center items-center px-6 md:hidden transition-all duration-300">
               <div className="flex flex-col items-center gap-6 text-center">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-bold tracking-tight text-slate-200 hover:text-brand-appleBlue transition-colors font-sans"
+                    className="text-2xl font-bold tracking-tight text-slate-900 hover:text-brand-appleBlue transition-colors font-sans"
                   >
                     {link.label}
                   </a>
@@ -528,7 +514,7 @@
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-6 px-8 py-3 rounded-full bg-brand-appleBlue text-brand-navyDark font-bold text-sm shadow-xl"
+                  className="mt-6 px-8 py-3 rounded-full bg-brand-appleBlue text-white font-bold text-sm shadow-xl"
                 >
                   Let’s Talk
                 </a>
@@ -539,28 +525,28 @@
       );
     }
 
-    function HeroSection({ setCursorState, onPlayShowreel }) {
+    function HeroSection({ setCursorState }) {
       return (
-        <section id="hero" className="relative min-h-screen pt-32 pb-20 px-4 sm:px-8 flex flex-col justify-center overflow-hidden">
+        <section id="hero" className="relative min-h-screen pt-32 pb-16 px-4 sm:px-8 flex flex-col justify-center overflow-hidden bg-brand-navyDark">
           
-          {/* Ambient Lighting Gradients */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-brand-accentBlue/20 rounded-full blur-[160px] pointer-events-none animate-glow-pulse"></div>
-          <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-brand-appleBlue/15 rounded-full blur-[130px] pointer-events-none"></div>
+          {/* Ambient Soft Blue Light Gradients for White Theme */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-brand-glowBlue rounded-full blur-[160px] pointer-events-none animate-glow-pulse"></div>
+          <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-blue-100/60 rounded-full blur-[130px] pointer-events-none"></div>
 
           <div className="max-w-6xl mx-auto w-full relative z-10">
             
             {/* Header Badges */}
             <div className="flex flex-wrap items-center gap-3 mb-8">
-              <div className="glass-pill px-4 py-1.5 rounded-full flex items-center gap-2 text-xs font-mono text-slate-200">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <div className="glass-pill px-4 py-1.5 rounded-full flex items-center gap-2 text-xs font-mono text-slate-700">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 {PORTFOLIO_DATA.personal.status}
               </div>
 
-              <div className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono text-brand-appleBlue">
+              <div className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono text-brand-appleBlue font-semibold">
                 {PORTFOLIO_DATA.personal.title}
               </div>
 
-              <div className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono text-slate-400 hidden sm:inline-block">
+              <div className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono text-slate-500 hidden sm:inline-block">
                 {PORTFOLIO_DATA.personal.yearsActive}
               </div>
             </div>
@@ -569,40 +555,41 @@
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-8 space-y-6">
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.08] text-gradient-silver">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.08] text-slate-900">
                   I turn raw footage into stories that move.
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl leading-relaxed">
+                <p className="text-lg sm:text-xl md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed">
                   {PORTFOLIO_DATA.personal.heroDesc}
                 </p>
 
                 {/* Call to Actions */}
                 <div className="pt-4 flex flex-wrap items-center gap-4">
                   <a
-                    href="#work"
-                    className="px-8 py-4 rounded-full bg-brand-appleBlue text-brand-navyDark font-bold text-sm hover:bg-white transition-all duration-300 shadow-xl hover:shadow-brand-appleBlue/30 flex items-center gap-3"
+                    href="#video-showcase"
+                    className="px-8 py-4 rounded-full bg-brand-appleBlue text-white font-bold text-sm hover:bg-slate-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
                     onMouseEnter={() => setCursorState('HOVER_LINK')}
                     onMouseLeave={() => setCursorState('DEFAULT')}
                   >
-                    <span>Selected Works</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    <span>Putar Video Utama</span>
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                   </a>
 
                   <a
-                    href="#contact"
-                    className="px-8 py-4 rounded-full glass-card text-white font-medium text-sm hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
+                    href="#work"
+                    className="px-8 py-4 rounded-full glass-card text-slate-900 font-medium text-sm hover:bg-white transition-all duration-300 flex items-center gap-2"
                     onMouseEnter={() => setCursorState('HOVER_LINK')}
                     onMouseLeave={() => setCursorState('DEFAULT')}
                   >
-                    <span>Let’s Work Together</span>
+                    <span>Lihat Portfolio</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/></svg>
                   </a>
                 </div>
               </div>
 
               {/* Profile Card Highlight */}
               <div className="lg:col-span-4 relative flex justify-center lg:justify-end">
-                <div className="relative w-64 sm:w-72 lg:w-full max-w-xs aspect-[4/5] rounded-3xl overflow-hidden glass-panel p-3 border border-white/15 shadow-2xl group">
+                <div className="relative w-64 sm:w-72 lg:w-full max-w-xs aspect-[4/5] rounded-3xl overflow-hidden glass-panel p-3 border border-slate-200 shadow-xl group">
                   <img 
                     src={PORTFOLIO_DATA.personal.photo} 
                     alt="Angga Oktavianto"
@@ -614,64 +601,153 @@
                   />
 
                   {/* Glass Photo Badge */}
-                  <div className="absolute bottom-6 left-6 right-6 p-3 rounded-xl glass-panel border border-white/15">
+                  <div className="absolute bottom-6 left-6 right-6 p-3 rounded-xl glass-panel border border-slate-200">
                     <div className="text-[11px] font-mono text-brand-appleBlue font-bold">ANGGA OKTAVIANTO</div>
-                    <div className="text-xs text-slate-300">Video Editor & Filmmaking Specialist</div>
+                    <div className="text-xs text-slate-700 font-medium">Video Editor & Filmmaking Specialist</div>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Showreel Preview Frame */}
-            <div className="mt-16 md:mt-20 relative rounded-3xl overflow-hidden glass-panel border border-white/10 p-2 sm:p-4 group">
-              <div 
-                className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer"
-                onClick={onPlayShowreel}
-                onMouseEnter={() => setCursorState('PLAY', 'PLAY REEL')}
-                onMouseLeave={() => setCursorState('DEFAULT')}
+          </div>
+        </section>
+      );
+    }
+
+    function VideoShowcaseSection({ setCursorState }) {
+      const [videoUrlInput, setVideoUrlInput] = useState(PORTFOLIO_DATA.featuredVideo.url);
+      const [activeUrl, setActiveUrl] = useState(PORTFOLIO_DATA.featuredVideo.url);
+      const [videoType, setVideoType] = useState(PORTFOLIO_DATA.featuredVideo.type);
+      const [isCustomizing, setIsCustomizing] = useState(false);
+
+      const handleUpdateVideo = (e) => {
+        e.preventDefault();
+        setActiveUrl(videoUrlInput);
+        if (videoUrlInput.includes('youtube.com') || videoUrlInput.includes('youtu.be')) {
+          setVideoType('youtube');
+        } else if (videoUrlInput.includes('drive.google.com')) {
+          setVideoType('drive');
+        } else {
+          setVideoType('mp4');
+        }
+        setIsCustomizing(false);
+      };
+
+      const renderPlayer = () => {
+        if (videoType === 'youtube' || activeUrl.includes('youtube.com') || activeUrl.includes('youtu.be')) {
+          let embedUrl = activeUrl;
+          if (activeUrl.includes('watch?v=')) {
+            embedUrl = activeUrl.replace('watch?v=', 'embed/');
+          } else if (activeUrl.includes('youtu.be/')) {
+            embedUrl = activeUrl.replace('youtu.be/', 'www.youtube.com/embed/');
+          }
+          return (
+            <iframe 
+              src={embedUrl} 
+              title="Angga Oktavianto Video Showcase"
+              className="w-full h-full border-0 rounded-2xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          );
+        } else if (videoType === 'drive' || activeUrl.includes('drive.google.com')) {
+          let embedUrl = activeUrl.replace('/view', '/preview');
+          return (
+            <iframe 
+              src={embedUrl} 
+              title="Angga Oktavianto Google Drive Video Showcase"
+              className="w-full h-full border-0 rounded-2xl"
+              allow="autoplay"
+            ></iframe>
+          );
+        } else {
+          return (
+            <video 
+              controls 
+              className="w-full h-full object-cover rounded-2xl"
+              poster={PORTFOLIO_DATA.featuredVideo.poster}
+            >
+              <source src={activeUrl} type="video/mp4" />
+              Browser Anda tidak mendukung pemutaran video langsung.
+            </video>
+          );
+        }
+      };
+
+      return (
+        <section id="video-showcase" className="py-20 px-4 sm:px-8 border-t border-b border-slate-200 bg-white relative">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Header Title */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+              <div>
+                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2 font-semibold">
+                  ★ FEATURED VIDEO SHOWCASE
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+                  SEKSYEN VIDEO UTAMA
+                </h2>
+              </div>
+              
+              <button
+                onClick={() => setIsCustomizing(!isCustomizing)}
+                className="self-start md:self-auto px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-mono border border-slate-300 transition-all flex items-center gap-2"
               >
-                <img 
-                  src={PORTFOLIO_DATA.showreel.poster} 
-                  alt="Showreel Preview"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 contrast-105" 
-                />
-                
-                {/* Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navyDark/90 via-transparent to-brand-navyDark/30"></div>
+                <svg className="w-4 h-4 text-brand-appleBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                <span>{isCustomizing ? "Sembunyikan Panel Input" : "Ganti Link Video Saya"}</span>
+              </button>
+            </div>
 
-                {/* Glass Tag */}
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-center pointer-events-none">
-                  <div className="glass-pill px-3 py-1 rounded-md text-[11px] font-mono tracking-wider text-slate-200">
-                    FEATURED REEL — {PORTFOLIO_DATA.personal.yearsActive}
-                  </div>
-                  <div className="glass-pill px-3 py-1 rounded-md text-[11px] font-mono tracking-wider text-brand-appleBlue">
-                    {PORTFOLIO_DATA.showreel.duration}
+            {/* Link Input Panel (Quick edit field for user) */}
+            {isCustomizing && (
+              <form onSubmit={handleUpdateVideo} className="mb-8 p-6 rounded-2xl bg-slate-50 border border-brand-appleBlue/30 space-y-4 animate-fade-in shadow-sm">
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs font-mono font-bold text-slate-700">
+                    Masukkan Link Video Anda (YouTube Embed / Google Drive Preview / File MP4 Direct Link):
+                  </label>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input 
+                      type="text" 
+                      value={videoUrlInput}
+                      onChange={(e) => setVideoUrlInput(e.target.value)}
+                      placeholder="Contoh: https://www.youtube.com/embed/dQw4w9WgXcQ atau https://.../video.mp4"
+                      className="flex-1 px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-brand-appleBlue"
+                    />
+                    <button 
+                      type="submit"
+                      className="px-6 py-3 rounded-xl bg-brand-appleBlue text-white text-xs font-bold tracking-wider hover:bg-slate-900 transition-colors"
+                    >
+                      TAMPILKAN VIDEO
+                    </button>
                   </div>
                 </div>
+                <div className="text-[11px] font-mono text-slate-500">
+                  * Tips: Anda bisa mengganti default link di dalam variabel <code className="bg-slate-200 px-1 py-0.5 rounded text-slate-800">PORTFOLIO_DATA.featuredVideo.url</code> pada kodingan JavaScript file ini.
+                </div>
+              </form>
+            )}
 
-                {/* Center Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full glass-panel flex items-center justify-center text-white border border-brand-appleBlue/50 group-hover:scale-110 group-hover:bg-brand-appleBlue group-hover:text-black transition-all duration-300 shadow-2xl">
-                    <svg className="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                  </div>
+            {/* Video Frame */}
+            <div className="relative rounded-3xl overflow-hidden glass-panel border border-slate-300 p-2 sm:p-4 shadow-2xl">
+              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-950">
+                {renderPlayer()}
+              </div>
+
+              {/* Subtitle Footer */}
+              <div className="mt-4 px-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">
+                    {PORTFOLIO_DATA.featuredVideo.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 font-light">
+                    {PORTFOLIO_DATA.featuredVideo.subtitle}
+                  </p>
                 </div>
 
-                {/* Bottom Bar Info */}
-                <div className="absolute bottom-4 left-6 right-6 flex flex-col sm:flex-row justify-between sm:items-end gap-2 text-white">
-                  <div>
-                    <div className="text-xs font-mono text-brand-appleBlue tracking-widest uppercase mb-1">
-                      Featured Presentation
-                    </div>
-                    <div className="text-xl sm:text-2xl font-bold tracking-tight">
-                      {PORTFOLIO_DATA.showreel.title}
-                    </div>
-                  </div>
-                  <div className="text-xs font-mono text-slate-400">
-                    Click to launch full video
-                  </div>
+                <div className="glass-pill px-3 py-1.5 rounded-full text-xs font-mono text-brand-appleBlue font-medium">
+                  READY FOR STREAMING
                 </div>
-
               </div>
             </div>
 
@@ -682,19 +758,19 @@
 
     function ExperienceSection({ setCursorState }) {
       return (
-        <section id="experience" className="py-24 px-4 sm:px-8 border-t border-white/5 relative bg-slate-950/40">
+        <section id="experience" className="py-24 px-4 sm:px-8 relative bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-6xl mx-auto">
             
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
-                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2">
+                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2 font-semibold">
                   PENGALAMAN & TRACK RECORD
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gradient-silver">
+                <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
                   EXPERIENCE
                 </h2>
               </div>
-              <p className="text-slate-400 max-w-md text-sm sm:text-base font-light">
+              <p className="text-slate-600 max-w-md text-sm sm:text-base font-light">
                 Pengalaman nyata mengedit konten media sosial, menumbuhkan channel YouTube dari 0, serta menggarap karya audiovisual sinematik.
               </p>
             </div>
@@ -704,36 +780,36 @@
               {PORTFOLIO_DATA.experiences.map((exp, idx) => (
                 <div 
                   key={exp.id}
-                  className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 relative overflow-hidden group transition-all duration-300"
+                  className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 relative overflow-hidden group transition-all duration-300"
                   onMouseEnter={() => setCursorState('HOVER_LINK')}
                   onMouseLeave={() => setCursorState('DEFAULT')}
                 >
                   <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 mb-4">
                     <div>
                       <div className="flex items-center gap-3 mb-1">
-                        <span className="text-xs font-mono text-brand-appleBlue px-3 py-1 rounded-full bg-brand-appleBlue/10 border border-brand-appleBlue/20">
+                        <span className="text-xs font-mono text-brand-appleBlue px-3 py-1 rounded-full bg-blue-50 border border-blue-200 font-medium">
                           {exp.period}
                         </span>
-                        <span className="text-xs font-mono text-emerald-400 font-semibold">
+                        <span className="text-xs font-mono text-emerald-600 font-semibold">
                           ★ {exp.highlight}
                         </span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-appleBlue transition-colors tracking-tight mt-2">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-brand-appleBlue transition-colors tracking-tight mt-2">
                         {exp.role}
                       </h3>
-                      <div className="text-sm font-mono text-slate-300 mt-1">
+                      <div className="text-sm font-mono text-slate-600 mt-1">
                         {exp.company}
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-slate-300 font-light text-sm sm:text-base leading-relaxed mb-6">
+                  <p className="text-slate-600 font-light text-sm sm:text-base leading-relaxed mb-6">
                     {exp.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/10">
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200">
                     {exp.tags.map((tag) => (
-                      <span key={tag} className="glass-pill px-3 py-1 rounded-md text-[11px] font-mono text-slate-300">
+                      <span key={tag} className="glass-pill px-3 py-1 rounded-md text-[11px] font-mono text-slate-600">
                         #{tag}
                       </span>
                     ))}
@@ -749,25 +825,25 @@
 
     function SelectedWorksSection({ setCursorState, onSelectProject }) {
       return (
-        <section id="work" className="py-24 px-4 sm:px-8 relative">
+        <section id="work" className="py-24 px-4 sm:px-8 relative bg-white">
           <div className="max-w-6xl mx-auto">
             
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
-                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2">
+                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2 font-semibold">
                   SELECTED WORKS — 2023–2026
                 </span>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gradient-silver">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900">
                   PORTFOLIO VIDEO
                 </h2>
               </div>
-              <p className="text-slate-400 max-w-sm text-sm font-light">
-                Enam karya pilihan yang menampilkan variasi kemampuan editing: YouTube growth, film dokumenter, film pendek, hingga reels sosial media.
+              <p className="text-slate-600 max-w-sm text-sm font-light">
+                Karya pilihan yang menampilkan variasi kemampuan editing: YouTube growth, film dokumenter, film pendek, hingga reels sosial media.
               </p>
             </div>
 
-            {/* 6 Projects Grid */}
+            {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {PORTFOLIO_DATA.projects.map((project) => (
@@ -778,33 +854,33 @@
                   onMouseEnter={() => setCursorState('HOVER_PROJECT', 'WATCH PROJECT')}
                   onMouseLeave={() => setCursorState('DEFAULT')}
                 >
-                  <div className="relative rounded-3xl overflow-hidden glass-card p-3 sm:p-4 h-full flex flex-col justify-between border border-white/10 group-hover:border-brand-appleBlue/40">
+                  <div className="relative rounded-3xl overflow-hidden glass-card p-3 sm:p-4 h-full flex flex-col justify-between border border-slate-200 group-hover:border-brand-appleBlue">
                     
                     <div>
                       {/* Image Thumbnail */}
-                      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-brand-navySlate mb-5">
+                      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-900 mb-5">
                         <img 
                           src={project.thumbnail} 
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
                         />
                         
                         {/* Dark Vignette */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-brand-navyDark/90 via-transparent to-brand-navyDark/20"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20"></div>
 
                         {/* Category Badges */}
                         <div className="absolute top-3 left-3 right-3 flex justify-between items-center">
-                          <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-mono text-slate-200">
+                          <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-slate-900 font-medium">
                             {project.category}
                           </span>
-                          <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-mono text-brand-appleBlue font-semibold">
+                          <span className="bg-brand-appleBlue px-3 py-1 rounded-full text-[11px] font-mono text-white font-semibold shadow-sm">
                             {project.year}
                           </span>
                         </div>
 
                         {/* Hover Watch Button Badge */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-navyDark/40 backdrop-blur-xs">
-                          <div className="px-5 py-2.5 rounded-full bg-brand-appleBlue text-brand-navyDark text-xs font-bold tracking-wider uppercase shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-950/40 backdrop-blur-xs">
+                          <div className="px-5 py-2.5 rounded-full bg-brand-appleBlue text-white text-xs font-bold tracking-wider uppercase shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
                             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             <span>Watch Project</span>
                           </div>
@@ -814,25 +890,25 @@
 
                       {/* Content Header */}
                       <div className="px-2">
-                        <div className="text-xs font-mono text-brand-appleBlue tracking-wider mb-1">
+                        <div className="text-xs font-mono text-brand-appleBlue tracking-wider mb-1 font-semibold">
                           {project.client}
                         </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-brand-appleBlue transition-colors tracking-tight mb-2">
+                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand-appleBlue transition-colors tracking-tight mb-2">
                           {project.title}
                         </h3>
-                        <p className="text-xs text-slate-300 line-clamp-2 font-light leading-relaxed mb-4">
+                        <p className="text-xs text-slate-600 line-clamp-2 font-light leading-relaxed mb-4">
                           {project.description}
                         </p>
                       </div>
                     </div>
 
                     {/* Bottom Action Footer */}
-                    <div className="pt-3 border-t border-white/10 px-2 flex items-center justify-between mt-auto">
-                      <span className="text-[11px] font-mono text-slate-400">
+                    <div className="pt-3 border-t border-slate-200 px-2 flex items-center justify-between mt-auto">
+                      <span className="text-[11px] font-mono text-slate-500">
                         {project.role}
                       </span>
 
-                      <span className="text-xs font-semibold text-brand-appleBlue flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span className="text-xs font-bold text-brand-appleBlue flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         Watch Video →
                       </span>
                     </div>
@@ -851,7 +927,6 @@
     function ProjectDetailModal({ project, onClose, setCursorState }) {
       if (!project) return null;
 
-      // Helper to render video player depending on link type (YouTube, Drive, MP4)
       const renderVideoPlayer = () => {
         if (project.videoType === 'youtube' || project.videoUrl.includes('youtube.com') || project.videoUrl.includes('youtu.be')) {
           return (
@@ -888,17 +963,17 @@
       };
 
       return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto bg-brand-navyDark/90 backdrop-blur-2xl animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto bg-slate-900/60 backdrop-blur-md animate-fade-in">
           
-          <div className="relative w-full max-w-5xl glass-panel rounded-3xl overflow-hidden border border-white/15 my-auto shadow-2xl">
+          <div className="relative w-full max-w-5xl bg-white rounded-3xl overflow-hidden border border-slate-200 my-auto shadow-2xl">
             
             {/* Modal Bar */}
-            <div className="p-6 border-b border-white/10 flex items-center justify-between">
+            <div className="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <div>
-                <span className="text-xs font-mono text-brand-appleBlue uppercase tracking-widest">
+                <span className="text-xs font-mono text-brand-appleBlue font-semibold uppercase tracking-widest">
                   {project.category} · {project.client}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-0.5">
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-0.5">
                   {project.title}
                 </h3>
               </div>
@@ -906,7 +981,7 @@
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-full glass-pill flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all"
+                className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:bg-slate-300 transition-all"
                 onMouseEnter={() => setCursorState('HOVER_LINK')}
                 onMouseLeave={() => setCursorState('DEFAULT')}
                 aria-label="Close project modal"
@@ -916,38 +991,38 @@
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 sm:p-8 space-y-8 max-h-[75vh] overflow-y-auto">
+            <div className="p-6 sm:p-8 space-y-8 max-h-[75vh] overflow-y-auto bg-white">
               
               {/* Main Embed Video Player Frame */}
-              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl">
+              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-300 shadow-xl">
                 {renderVideoPlayer()}
               </div>
 
               {/* Metadata Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-200">
                 <div>
-                  <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">
+                  <h4 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-1">
                     Role / Position
                   </h4>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-slate-900">
                     {project.role}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">
+                  <h4 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-1">
                     Editing Services
                   </h4>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-slate-900">
                     {project.services}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">
+                  <h4 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-1">
                     Client / Channel
                   </h4>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-slate-900">
                     {project.client} ({project.year})
                   </p>
                 </div>
@@ -955,17 +1030,17 @@
 
               {/* Description */}
               <div className="space-y-4">
-                <h4 className="text-sm font-mono text-brand-appleBlue uppercase tracking-widest">
+                <h4 className="text-sm font-mono text-brand-appleBlue font-bold uppercase tracking-widest">
                   Project Overview & Editing Highlights
                 </h4>
-                <p className="text-slate-300 text-base leading-relaxed font-light">
+                <p className="text-slate-600 text-base leading-relaxed font-light">
                   {project.description}
                 </p>
 
                 {/* Technical Points */}
                 <div className="space-y-2 pt-2">
                   {project.keyPoints.map((point, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
+                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-appleBlue mt-2 flex-shrink-0"></span>
                       <span>{point}</span>
                     </div>
@@ -976,10 +1051,10 @@
             </div>
 
             {/* Modal Footer */}
-            <div className="p-6 border-t border-white/10 bg-brand-navySlate/60 flex justify-end">
+            <div className="p-6 border-t border-slate-200 bg-slate-50 flex justify-end">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-full bg-white/10 text-white text-xs font-mono tracking-wider hover:bg-white/20 transition-all"
+                className="px-6 py-2.5 rounded-full bg-slate-900 text-white text-xs font-mono tracking-wider hover:bg-brand-appleBlue transition-all"
               >
                 Close Window
               </button>
@@ -992,14 +1067,14 @@
 
     function AboutSection({ setCursorState }) {
       return (
-        <section id="about" className="py-24 px-4 sm:px-8 border-t border-white/5 relative bg-slate-950/30">
+        <section id="about" className="py-24 px-4 sm:px-8 border-t border-slate-200 relative bg-slate-50/50">
           <div className="max-w-6xl mx-auto">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Profile Photo Column */}
               <div className="lg:col-span-5 relative">
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-panel p-3 border border-white/15 shadow-2xl">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-panel p-3 border border-slate-200 shadow-xl">
                   <img 
                     src={PORTFOLIO_DATA.personal.photo} 
                     alt="Angga Oktavianto Portrait"
@@ -1011,10 +1086,10 @@
                   />
                   
                   {/* Floating Education Badge */}
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/15">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-slate-200 shadow-md">
                     <div className="text-xs font-mono text-brand-appleBlue font-bold">ALUMNI</div>
-                    <div className="text-base font-bold text-white">Citra Film School</div>
-                    <div className="text-xs text-slate-300">Filmmaking & Visual Storytelling Focus</div>
+                    <div className="text-base font-bold text-slate-900">Citra Film School</div>
+                    <div className="text-xs text-slate-600">Filmmaking & Visual Storytelling Focus</div>
                   </div>
                 </div>
               </div>
@@ -1022,19 +1097,19 @@
               {/* Narrative Copy */}
               <div className="lg:col-span-7 space-y-8">
                 <div>
-                  <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-3">
+                  <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-3 font-semibold">
                     ABOUT ANGGA OKTAVIANTO
                   </span>
-                  <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gradient-silver leading-tight">
+                  <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                     Behind every frame, there’s a reason.
                   </h2>
                 </div>
 
-                <div className="space-y-4 text-slate-300 font-light text-base sm:text-lg leading-relaxed">
+                <div className="space-y-4 text-slate-600 font-light text-base sm:text-lg leading-relaxed">
                   <p>
-                    Saya Angga Oktavianto, seorang <strong className="text-white font-semibold">Video Editor & Filmmaking Specialist</strong> berdedikasi. Fokus utama saya adalah mengubah footage mentah menjadi kisah visual yang berkesan, memiliki ritme cerita yang tepat, dan mampu menyampaikan pesan emosional kepada penonton.
+                    Saya Angga Oktavianto, seorang <strong className="text-slate-900 font-semibold">Video Editor & Filmmaking Specialist</strong> berdedikasi. Fokus utama saya adalah mengubah footage mentah menjadi kisah visual yang berkesan, memiliki ritme cerita yang tepat, dan mampu menyampaikan pesan emosional kepada penonton.
                   </p>
-                  <p className="text-slate-400 text-sm sm:text-base">
+                  <p className="text-slate-600 text-sm sm:text-base">
                     Proses kreatif saya menggabungkan teori sinematografi, teknik pemotongan presisi (pacing), pemilihan tone warna, serta penyusunan desain audio ambient untuk memastikan setiap karya memiliki tujuan visual yang jelas.
                   </p>
                 </div>
@@ -1042,15 +1117,15 @@
                 {/* Highlights Summary */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                   <div className="glass-card p-4 rounded-2xl">
-                    <div className="text-xs font-mono text-slate-400 mb-1">PENGALAMAN</div>
-                    <div className="text-xl font-bold text-white">2023 — 2026</div>
-                    <div className="text-xs text-brand-appleBlue mt-1">Video Editing & Filmmaking</div>
+                    <div className="text-xs font-mono text-slate-500 mb-1">PENGALAMAN</div>
+                    <div className="text-xl font-bold text-slate-900">2023 — 2026</div>
+                    <div className="text-xs text-brand-appleBlue font-medium mt-1">Video Editing & Filmmaking</div>
                   </div>
 
                   <div className="glass-card p-4 rounded-2xl">
-                    <div className="text-xs font-mono text-slate-400 mb-1">KEY STRENGTHS</div>
-                    <div className="text-xl font-bold text-white">Pacing & Audience Retention</div>
-                    <div className="text-xs text-brand-appleBlue mt-1">YouTube, Shorts, Shorts & Films</div>
+                    <div className="text-xs font-mono text-slate-500 mb-1">KEY STRENGTHS</div>
+                    <div className="text-xl font-bold text-slate-900">Pacing & Audience Retention</div>
+                    <div className="text-xs text-brand-appleBlue font-medium mt-1">YouTube, Shorts & Films</div>
                   </div>
                 </div>
 
@@ -1065,14 +1140,14 @@
 
     function ServicesSection({ setCursorState }) {
       return (
-        <section id="services" className="py-24 px-4 sm:px-8 relative">
+        <section id="services" className="py-24 px-4 sm:px-8 relative bg-white border-b border-slate-200">
           <div className="max-w-6xl mx-auto">
             
             <div className="mb-16">
-              <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2">
+              <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2 font-semibold">
                 WHAT I BRING TO THE TABLE
               </span>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gradient-silver">
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
                 CREATIVE SERVICES
               </h2>
             </div>
@@ -1086,19 +1161,19 @@
                   onMouseLeave={() => setCursorState('DEFAULT')}
                 >
                   <div className="flex items-start justify-between">
-                    <span className="text-3xl font-mono font-bold text-white/20 group-hover:text-brand-appleBlue transition-colors">
+                    <span className="text-3xl font-mono font-bold text-slate-300 group-hover:text-brand-appleBlue transition-colors">
                       {service.number}
                     </span>
-                    <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-brand-appleBlue/20 flex items-center justify-center text-slate-400 group-hover:text-brand-appleBlue transition-all">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-100 flex items-center justify-center text-slate-500 group-hover:text-brand-appleBlue transition-all">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                   </div>
 
                   <div className="mt-8">
-                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    <p className="text-sm text-slate-600 font-light leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -1113,26 +1188,26 @@
 
     function ToolsSection({ setCursorState }) {
       return (
-        <section id="tools" className="py-24 px-4 sm:px-8 border-t border-white/5 relative bg-slate-950/40">
+        <section id="tools" className="py-24 px-4 sm:px-8 relative bg-slate-50/70 border-b border-slate-200">
           <div className="max-w-6xl mx-auto">
             
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
-                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2">
+                <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-2 font-semibold">
                   SOFTWARE & CREATIVE ECOSYSTEM
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gradient-silver">
+                <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
                   The Tools Behind the Story.
                 </h2>
               </div>
-              <p className="text-slate-400 max-w-md text-sm font-light">
+              <p className="text-slate-600 max-w-md text-sm font-light">
                 Perangkat lunak profesional yang digunakan tanpa persentase artifisial. Fokus pada hasil karya visual.
               </p>
             </div>
 
             {/* Video Editing Software */}
             <div className="mb-12">
-              <h3 className="text-xs font-mono tracking-widest text-slate-400 uppercase mb-6 flex items-center gap-2">
+              <h3 className="text-xs font-mono tracking-widest text-slate-500 uppercase mb-6 flex items-center gap-2 font-bold">
                 <span className="w-2 h-2 rounded-full bg-brand-appleBlue"></span>
                 VIDEO EDITING & COLOR SOFTWARE
               </h3>
@@ -1144,14 +1219,14 @@
                     onMouseEnter={() => setCursorState('HOVER_LINK')}
                     onMouseLeave={() => setCursorState('DEFAULT')}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-brand-navySlate border border-white/10 flex items-center justify-center text-brand-appleBlue mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-brand-appleBlue mb-4 group-hover:scale-110 transition-transform">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-white group-hover:text-brand-appleBlue transition-colors">
+                      <h4 className="text-base font-bold text-slate-900 group-hover:text-brand-appleBlue transition-colors">
                         {tool.name}
                       </h4>
-                      <p className="text-xs text-slate-400 mt-1 font-light">
+                      <p className="text-xs text-slate-500 mt-1 font-light">
                         {tool.desc}
                       </p>
                     </div>
@@ -1162,8 +1237,8 @@
 
             {/* Graphic Design Software */}
             <div className="mb-12">
-              <h3 className="text-xs font-mono tracking-widest text-slate-400 uppercase mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-purple-400"></span>
+              <h3 className="text-xs font-mono tracking-widest text-slate-500 uppercase mb-6 flex items-center gap-2 font-bold">
+                <span className="w-2 h-2 rounded-full bg-purple-600"></span>
                 DESIGN & VISUAL CREATION
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1174,14 +1249,14 @@
                     onMouseEnter={() => setCursorState('HOVER_LINK')}
                     onMouseLeave={() => setCursorState('DEFAULT')}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-brand-navySlate border border-white/10 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 mb-4 group-hover:scale-110 transition-transform">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
+                      <h4 className="text-base font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
                         {tool.name}
                       </h4>
-                      <p className="text-xs text-slate-400 mt-1 font-light">
+                      <p className="text-xs text-slate-500 mt-1 font-light">
                         {tool.desc}
                       </p>
                     </div>
@@ -1193,10 +1268,10 @@
             {/* AI Assistant Workflow */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <h3 className="text-xs font-mono tracking-widest text-slate-400 uppercase">
+                <h3 className="text-xs font-mono tracking-widest text-slate-500 uppercase font-bold">
                   AI-ASSISTED CREATIVE WORKFLOW
                 </h3>
-                <span className="glass-pill px-2.5 py-0.5 rounded text-[10px] font-mono text-brand-appleBlue">
+                <span className="glass-pill px-2.5 py-0.5 rounded text-[10px] font-mono text-brand-appleBlue font-bold">
                   IDEATION & RESEARCH
                 </span>
               </div>
@@ -1205,29 +1280,29 @@
                 {PORTFOLIO_DATA.tools.ai.map((aiTool) => (
                   <div 
                     key={aiTool.name}
-                    className="glass-panel p-6 rounded-3xl border border-white/15 relative overflow-hidden group"
+                    className="glass-panel p-6 rounded-3xl border border-slate-200 relative overflow-hidden group shadow-sm"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-brand-appleBlue/20 border border-brand-appleBlue/30 flex items-center justify-center text-brand-appleBlue">
+                        <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-brand-appleBlue">
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <div>
-                          <h4 className="text-xl font-bold text-white">{aiTool.name}</h4>
-                          <span className="text-xs font-mono text-slate-400">{aiTool.tag}</span>
+                          <h4 className="text-xl font-bold text-slate-900">{aiTool.name}</h4>
+                          <span className="text-xs font-mono text-slate-500">{aiTool.tag}</span>
                         </div>
                       </div>
 
-                      <div className="glass-pill px-3 py-1 rounded-full text-xs font-mono text-brand-appleBlue">
+                      <div className="glass-pill px-3 py-1 rounded-full text-xs font-mono text-brand-appleBlue font-medium">
                         {aiTool.tooltip}
                       </div>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-300 font-light mb-4">
+                    <p className="text-xs sm:text-sm text-slate-600 font-light mb-4">
                       {aiTool.uses}
                     </p>
 
-                    <div className="text-[11px] font-mono text-slate-400 border-t border-white/10 pt-3">
+                    <div className="text-[11px] font-mono text-slate-500 border-t border-slate-200 pt-3">
                       Creativity first. Technology as an extension of the storytelling process.
                     </div>
                   </div>
@@ -1259,22 +1334,22 @@
       };
 
       return (
-        <section id="contact" className="py-28 px-4 sm:px-8 relative overflow-hidden border-t border-white/10 bg-slate-950">
+        <section id="contact" className="py-28 px-4 sm:px-8 relative overflow-hidden bg-white">
           
           {/* Ambient Glow */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-brand-accentBlue/15 rounded-full blur-[180px] pointer-events-none"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-blue-100/50 rounded-full blur-[180px] pointer-events-none"></div>
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
             
-            <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-4">
+            <span className="text-xs font-mono tracking-widest text-brand-appleBlue uppercase block mb-4 font-semibold">
               START A CONVERSATION
             </span>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-gradient-silver mb-6">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6">
               Have a story worth telling?
             </h2>
 
-            <p className="text-lg sm:text-xl text-slate-300 max-w-xl mx-auto font-light mb-12">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-xl mx-auto font-light mb-12">
               Mari ubah footage mentah Anda menjadi tayangan sinematik yang berkesan bagi audiens.
             </p>
 
@@ -1282,7 +1357,7 @@
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <a
                 href={`mailto:${PORTFOLIO_DATA.personal.contact.email}`}
-                className="w-full sm:w-auto px-10 py-5 rounded-full bg-brand-appleBlue text-brand-navyDark font-bold text-base hover:bg-white transition-all duration-300 shadow-2xl hover:shadow-brand-appleBlue/40 flex items-center justify-center gap-3"
+                className="w-full sm:w-auto px-10 py-5 rounded-full bg-brand-appleBlue text-white font-bold text-base hover:bg-slate-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
                 onMouseEnter={() => setCursorState('HOVER_LINK')}
                 onMouseLeave={() => setCursorState('DEFAULT')}
               >
@@ -1292,7 +1367,7 @@
 
               <button
                 onClick={handleCopyEmail}
-                className="w-full sm:w-auto px-8 py-5 rounded-full glass-card text-white text-sm font-mono tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-5 rounded-full glass-card text-slate-900 text-sm font-mono tracking-wider hover:bg-slate-100 transition-all flex items-center justify-center gap-2"
                 onMouseEnter={() => setCursorState('HOVER_LINK')}
                 onMouseLeave={() => setCursorState('DEFAULT')}
               >
@@ -1301,7 +1376,7 @@
             </div>
 
             {/* Contact Details */}
-            <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-mono text-slate-300 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-mono text-slate-700 pt-8 border-t border-slate-200">
               <a 
                 href={`https://wa.me/${PORTFOLIO_DATA.personal.contact.whatsapp}`} 
                 target="_blank" 
@@ -1320,13 +1395,13 @@
                 <span>Instagram: {PORTFOLIO_DATA.personal.contact.instagram}</span>
               </a>
 
-              <span className="text-slate-400">
+              <span className="text-slate-500">
                 {PORTFOLIO_DATA.personal.location}
               </span>
             </div>
 
             {/* Copyright */}
-            <div className="mt-16 text-xs font-mono text-slate-400">
+            <div className="mt-16 text-xs font-mono text-slate-500">
               © {PORTFOLIO_DATA.personal.yearsActive} ANGGA OKTAVIANTO. Video Editor & Filmmaking Specialist.
             </div>
 
@@ -1339,7 +1414,6 @@
       const [cursorState, setCursorState] = useState('DEFAULT');
       const [cursorText, setCursorText] = useState('');
       const [selectedProject, setSelectedProject] = useState(null);
-      const [showreelModalOpen, setShowreelModalOpen] = useState(false);
 
       const handleSetCursor = (state, text = '') => {
         setCursorState(state);
@@ -1347,7 +1421,7 @@
       };
 
       return (
-        <div className="min-h-screen bg-brand-navyDark text-brand-softOffwhite">
+        <div className="min-h-screen bg-brand-navyDark text-slate-900">
           
           {/* Custom Desktop Glass Cursor */}
           <CustomCursor cursorState={cursorState} cursorText={cursorText} />
@@ -1360,7 +1434,11 @@
           {/* Hero Section */}
           <HeroSection 
             setCursorState={handleSetCursor}
-            onPlayShowreel={() => setShowreelModalOpen(true)}
+          />
+
+          {/* Dedicated Video Showcase Section */}
+          <VideoShowcaseSection 
+            setCursorState={handleSetCursor}
           />
 
           {/* Experience Section */}
@@ -1368,7 +1446,7 @@
             setCursorState={handleSetCursor}
           />
 
-          {/* Selected Works 6 Projects Grid */}
+          {/* Selected Works (MLBB Competitive Highlights removed) */}
           <SelectedWorksSection 
             setCursorState={handleSetCursor}
             onSelectProject={(proj) => setSelectedProject(proj)}
@@ -1399,31 +1477,6 @@
             <ProjectDetailModal 
               project={selectedProject}
               onClose={() => setSelectedProject(null)}
-              setCursorState={handleSetCursor}
-            />
-          )}
-
-          {/* Showreel Video Modal */}
-          {showreelModalOpen && (
-            <ProjectDetailModal 
-              project={{
-                title: "SELECTED SHOWREEL 2023-2026",
-                category: "Showreel Montage",
-                client: "Angga Oktavianto Portfolio",
-                year: "2023 — 2026",
-                role: "Lead Editor & Storyteller",
-                services: "Pacing · Motion · Sound Design · Color Atmosphere",
-                videoType: "mp4",
-                videoUrl: PORTFOLIO_DATA.showreel.videoSrc,
-                thumbnail: PORTFOLIO_DATA.showreel.poster,
-                description: PORTFOLIO_DATA.showreel.subtitle,
-                keyPoints: [
-                  "Kompilasi karya terbaik pilihan dari film pendek, dokumenter, hingga konten YouTube",
-                  "Sinkronisasi audio-visual presisi dan penyusunan transisi dinamis",
-                  "Eksperimen warna dan ritme potongan bingkai demi bingkai"
-                ]
-              }}
-              onClose={() => setShowreelModalOpen(false)}
               setCursorState={handleSetCursor}
             />
           )}
