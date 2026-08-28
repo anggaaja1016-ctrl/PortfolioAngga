@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <!-- Center Navigation Bar (Pill design) -->
+            <!-- Center Navigation Bar -->
             <nav class="hidden md:flex items-center gap-1 bg-slate-100/70 p-1.5 rounded-full border border-slate-200/80 text-xs font-semibold text-slate-600 shadow-inner">
                 <a href="#video-player" class="px-3.5 py-1.5 rounded-full hover:text-blue-600 hover:bg-white transition-all">Video Player</a>
                 <a href="#work" class="px-3.5 py-1.5 rounded-full hover:text-blue-600 hover:bg-white transition-all">Work</a>
@@ -136,16 +136,25 @@
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-full max-w-sm bg-white p-3 rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/50">
                     <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900">
-                        <!-- Updated Profile Image: Jas Hitam Putih -->
-                        <img id="hero-img" src="angga-oktavianto0.png" alt="Angga Oktavianto" class="w-full h-full object-cover object-top filter brightness-100">
+                        <!-- Profile Image -->
+                        <img id="hero-img" src="Gemini_Generated_Image_mcwbjxmcwbjxmcwb.jpg" alt="Angga Oktavianto" class="w-full h-full object-cover object-top filter brightness-100">
                         
+                        <!-- Input muat naik foto profil (tersembunyi) -->
+                        <input type="file" id="hero-img-input" accept="image/*" class="hidden" onchange="handleImageUpload(event, 'hero-img')">
+
                         <!-- Overlay gradient -->
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
                         <!-- Card Bottom Badge -->
-                        <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/40 shadow-lg">
-                            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">ANGGA OKTAVIANTO</h3>
-                            <p class="text-[11px] font-medium text-slate-600">Video Editor &amp; Filmmaking Specialist</p>
+                        <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/40 shadow-lg flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">ANGGA OKTAVIANTO</h3>
+                                <p class="text-[11px] font-medium text-slate-600">Video Editor &amp; Filmmaking Specialist</p>
+                            </div>
+                            <button onclick="document.getElementById('hero-img-input').click()" title="Unggah / Impor Foto Profil Sendiri" class="p-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md flex items-center gap-1.5 text-xs font-bold">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 002 2h12a3 3 0 002-2v-1M16 8l-4-4m0 0L8 8m4-4v12"/></svg>
+                                <span>Ganti Foto</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -165,13 +174,13 @@
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         FEATURED VIDEO SHOWCASE
                     </span>
-                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-1">VIDEO UTAMA</h2>
+                    <h2 id="now-playing-title" class="text-3xl font-extrabold text-slate-900 tracking-tight mt-1">VIDEO UTAMA</h2>
                 </div>
 
                 <!-- Custom Link Edit Button -->
-                <button onclick="toggleVideoModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs border border-slate-300/80 transition-all">
+                <button onclick="openVideoModal('main')" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs border border-slate-300/80 transition-all">
                     <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-                    Ganti Link Video Saya
+                    Ganti Link Video (YouTube / Google Drive)
                 </button>
             </div>
 
@@ -179,8 +188,8 @@
             <div class="relative bg-slate-900 rounded-3xl p-2 border border-slate-200 shadow-2xl overflow-hidden group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center">
                     
-                    <!-- Dynamic Iframe / Video Player -->
-                    <iframe id="main-video-iframe" class="w-full h-full border-0" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- Dynamic Iframe / Video Player (Mendukung YouTube & Google Drive) -->
+                    <iframe id="main-video-iframe" class="w-full h-full border-0" src="https://drive.google.com/file/d/1zfhQrx6uwomsar2bWvUOsgVDwZMvRfI4/preview" title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 </div>
             </div>
@@ -306,7 +315,7 @@
                 </div>
                 <div class="lg:col-span-5">
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Karya pilihan yang menampilkan variasi kemampuan editing: YouTube growth, film dokumenter, film pendek, hingga reels sosial media.
+                        Karya pilihan yang menampilkan variasi kemampuan editing. Menerima pautan YouTube mahupun Google Drive File / Folder. Klik <strong class="text-slate-900">Watch Video</strong> untuk memutar di Player Utama.
                     </p>
                 </div>
             </div>
@@ -314,68 +323,96 @@
             <!-- Portfolio Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Card 1: Guide Hub YouTube Growth -->
-                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between">
+                <!-- Card 1: Google Drive Featured File -->
+                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between group" id="card-proj-1">
                     <div class="space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-900">
-                            <!-- Updated Image -->
                             <img src="guide-hub-you-tube-growth-series0.png" alt="Guide Hub YouTube Growth Series" class="w-full h-full object-cover">
-                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">YouTube Content</div>
-                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2023 — 2026</div>
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Drive Video File</div>
+                            <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                                <button onclick="openVideoModal('proj-1')" title="Edit URL Video Ini" class="p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow backdrop-blur-md transition-all">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </button>
+                                <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2023 — 2026</span>
+                            </div>
                         </div>
 
                         <div class="space-y-1.5 px-1">
                             <span class="text-xs font-bold text-blue-600 uppercase">Guide Hub Agency</span>
-                            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Guide Hub YouTube Growth Series</h3>
+                            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Guide Hub Video Project (Google Drive File)</h3>
                             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                                Seri editisasi konten YouTube untuk channel Guide Hub. Berhasil memicu pertumbuhan organik channel dari nol.
+                                Rekaman video portfolio berkualiti tinggi yang dihoskan secara langsung di Google Drive.
                             </p>
+                            <div class="pt-1">
+                                <span class="text-[11px] font-mono text-slate-400 block truncate">URL: <span id="url-proj-1">https://drive.google.com/file/d/1zfhQrx6uwomsar2bWvUOsgVDwZMvRfI4/view?usp=sharing</span></span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-4 px-1">
                         <span class="text-[11px] font-medium text-slate-500">Video Editor · Growth</span>
-                        <button onclick="playProjectVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-                            Watch Video →
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <a id="link-proj-1" href="https://drive.google.com/file/d/1zfhQrx6uwomsar2bWvUOsgVDwZMvRfI4/view?usp=sharing" target="_blank" rel="noopener" title="Buka di Google Drive" class="p-1.5 text-slate-400 hover:text-blue-600 transition-colors">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.01 1.485c-2.082 0-3.9.99-5.11 2.53L1.13 13.911a6.002 6.002 0 0 0 .88 7.37 5.96 5.96 0 0 0 4.24 1.734h11.5a5.98 5.98 0 0 0 5.12-2.88 5.97 5.97 0 0 0 .01-6.224L17.13 3.995a5.96 5.96 0 0 0-5.12-2.51zm0 2.4c1.23 0 2.37.6 3.08 1.62l5.75 9.92a3.58 3.58 0 0 1 0 3.65 3.58 3.58 0 0 1-3.08 1.73H6.25a3.58 3.58 0 0 1-3.08-1.73 3.58 3.58 0 0 1 0-3.65l5.76-9.92A3.58 3.58 0 0 1 12.01 3.885z"/></svg>
+                            </a>
+                            <button onclick="playProjectVideoFromCard('proj-1', 'Guide Hub Video Project (Google Drive File)')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white transition-all text-xs font-bold">
+                                Watch Video →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 2: A Story of Kepepet -->
-                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between">
+                <!-- Card 2: Google Drive Folder Link -->
+                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between group" id="card-proj-2">
                     <div class="space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-950">
-                            <!-- Updated Image -->
                             <img src="film-dokumenter-jejak-resonansi0.png" alt="A Story Of Kepepet" class="w-full h-full object-cover">
-                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Documentary Film</div>
-                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2025</div>
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Drive Folder Project</div>
+                            <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                                <button onclick="openVideoModal('proj-2')" title="Edit URL Video Ini" class="p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow backdrop-blur-md transition-all">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </button>
+                                <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2025</span>
+                            </div>
                         </div>
 
                         <div class="space-y-1.5 px-1">
                             <span class="text-xs font-bold text-blue-600 uppercase">Citra Film School Feature</span>
-                            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Film Dokumenter — A Story Of Kepepet</h3>
+                            <h3 class="text-lg font-extrabold text-slate-900 leading-snug">Film Dokumenter — A Story Of Kepepet (Drive Folder)</h3>
                             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                                Sebuah dokumenter mendalam tentang ekspresi manusia dan momen emosional yang halus. Footage sinematik.
+                                Koleksi fail footage dan dokumentasi lengkap projek dalam folder Google Drive dikongsi.
                             </p>
+                            <div class="pt-1">
+                                <span class="text-[11px] font-mono text-slate-400 block truncate">URL: <span id="url-proj-2">https://drive.google.com/drive/folders/1IN8TiDU1cxHH4as4jGGQYxRYV8VWT55c?usp=drive_link</span></span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-4 px-1">
                         <span class="text-[11px] font-medium text-slate-500">Lead Editor · Storyteller</span>
-                        <button onclick="playProjectVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-                            Watch Video →
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <a id="link-proj-2" href="https://drive.google.com/drive/folders/1IN8TiDU1cxHH4as4jGGQYxRYV8VWT55c?usp=drive_link" target="_blank" rel="noopener" title="Buka Folder Drive" class="p-1.5 text-slate-400 hover:text-blue-600 transition-colors">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                            </a>
+                            <button onclick="playProjectVideoFromCard('proj-2', 'Film Dokumenter — A Story Of Kepepet')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white transition-all text-xs font-bold">
+                                Watch Video →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 3: Implusif -->
-                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between">
+                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between group" id="card-proj-3">
                     <div class="space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-black">
-                            <!-- Updated Image -->
                             <img src="div-absolute9.png" alt="IMPLUSIF" class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Short Film</div>
-                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2024</div>
+                            <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                                <button onclick="openVideoModal('proj-3')" title="Edit URL Video Ini" class="p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow backdrop-blur-md transition-all">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </button>
+                                <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2024</span>
+                            </div>
                         </div>
 
                         <div class="space-y-1.5 px-1">
@@ -384,25 +421,37 @@
                             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                                 Film pendek naratif yang berfokus pada dinamika antar karakter tanpa dialog berlebih. Pemotongan gambar presisi.
                             </p>
+                            <div class="pt-1">
+                                <span class="text-[11px] font-mono text-slate-400 block truncate">URL: <span id="url-proj-3">https://www.youtube.com/watch?v=dQw4w9WgXcQ</span></span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-4 px-1">
                         <span class="text-[11px] font-medium text-slate-500">Video Editor · Pacing &amp; Rhythm</span>
-                        <button onclick="playProjectVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-                            Watch Video →
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <a id="link-proj-3" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" title="Buka di YouTube" class="p-1.5 text-slate-400 hover:text-red-600 transition-colors">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <button onclick="playProjectVideoFromCard('proj-3', 'Film Pendek — IMPLUSIF')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white transition-all text-xs font-bold">
+                                Watch Video →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 4: Game Content Stella Sora -->
-                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between">
+                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between group" id="card-proj-4">
                     <div class="space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-900">
-                            <!-- Updated Image -->
                             <img src="vlog-museum-ruwa-jurai0.png" alt="Game Content Stella Sora" class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Creative Vlog / Travel</div>
-                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2024</div>
+                            <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                                <button onclick="openVideoModal('proj-4')" title="Edit URL Video Ini" class="p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow backdrop-blur-md transition-all">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </button>
+                                <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2024</span>
+                            </div>
                         </div>
 
                         <div class="space-y-1.5 px-1">
@@ -411,25 +460,37 @@
                             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                                 Seri editisasi konten YouTube untuk channel Guide Hub. Berhasil memicu pertumbuhan organik channel.
                             </p>
+                            <div class="pt-1">
+                                <span class="text-[11px] font-mono text-slate-400 block truncate">URL: <span id="url-proj-4">https://www.youtube.com/watch?v=dQw4w9WgXcQ</span></span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-4 px-1">
                         <span class="text-[11px] font-medium text-slate-500">Editor &amp; Motion Styling</span>
-                        <button onclick="playProjectVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-                            Watch Video →
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <a id="link-proj-4" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" title="Buka di YouTube" class="p-1.5 text-slate-400 hover:text-red-600 transition-colors">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <button onclick="playProjectVideoFromCard('proj-4', 'Game Content Stella Sora')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white transition-all text-xs font-bold">
+                                Watch Video →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 5: Barber Reels -->
-                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between">
+                <div class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm card-hover flex flex-col justify-between group" id="card-proj-5">
                     <div class="space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-900">
-                            <!-- Updated Image -->
                             <img src="digital-creator-reels-montages0.png" alt="Content Reels & Montages" class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold">Digital Content Showcase</div>
-                            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2023 — 2026</div>
+                            <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                                <button onclick="openVideoModal('proj-5')" title="Edit URL Video Ini" class="p-1.5 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow backdrop-blur-md transition-all">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                                </button>
+                                <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-[11px] font-bold">2023 — 2026</span>
+                            </div>
                         </div>
 
                         <div class="space-y-1.5 px-1">
@@ -438,14 +499,22 @@
                             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                                 Koleksi potongan video promosi dan konten media sosial berdurasi singkat. Dirancang khusus untuk daya pikat tinggi.
                             </p>
+                            <div class="pt-1">
+                                <span class="text-[11px] font-mono text-slate-400 block truncate">URL: <span id="url-proj-5">https://www.youtube.com/watch?v=dQw4w9WgXcQ</span></span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-4 px-1">
                         <span class="text-[11px] font-medium text-slate-500">Creative Video Editor</span>
-                        <button onclick="playProjectVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-                            Watch Video →
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <a id="link-proj-5" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" title="Buka di YouTube" class="p-1.5 text-slate-400 hover:text-red-600 transition-colors">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <button onclick="playProjectVideoFromCard('proj-5', 'Content Reels & Montages')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white transition-all text-xs font-bold">
+                                Watch Video →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -461,10 +530,18 @@
                 
                 <!-- Left Image Box -->
                 <div class="lg:col-span-5">
-                    <div class="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[4/5] shadow-md">
-                        <!-- Updated About Image (Kacamata) -->
-                        <img src="angga-oktavianto-portrait0.jpg" alt="Angga Oktavianto" class="w-full h-full object-cover">
+                    <div class="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[4/5] shadow-md group">
+                        <img id="about-img" src="angga-oktavianto-portrait0.jpg" alt="Angga Oktavianto" class="w-full h-full object-cover">
                         
+                        <!-- Input muat naik foto About (tersembunyi) -->
+                        <input type="file" id="about-img-input" accept="image/*" class="hidden" onchange="handleImageUpload(event, 'about-img')">
+
+                        <!-- Button upload overlay -->
+                        <button onclick="document.getElementById('about-img-input').click()" title="Unggah Foto About Sendiri" class="absolute top-3 right-3 p-2 rounded-xl bg-white/90 hover:bg-white text-slate-800 shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5 text-xs font-bold">
+                            <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 002 2h12a3 3 0 002-2v-1M16 8l-4-4m0 0L8 8m4-4v12"/></svg>
+                            <span>Ganti Foto About</span>
+                        </button>
+
                         <!-- Bottom Pill overlay -->
                         <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-white/40 shadow-sm">
                             <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider block">ALUMNI</span>
@@ -600,7 +677,7 @@
         </div>
     </section>
 
-    <!-- ================= TOOLS SECTION WITH REAL LOGO ICONS ================= -->
+    <!-- ================= TOOLS SECTION WITH OFFICIAL BRAND VECTOR LOGOS ================= -->
     <section id="tools" class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div class="space-y-12">
             
@@ -626,13 +703,11 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
-                    <!-- Premiere Pro Icon -->
+                    <!-- Premiere Pro -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-[#00005b] flex items-center justify-center p-2 shadow-sm border border-indigo-900">
-                                <svg viewBox="0 0 24 24" class="w-full h-full text-[#9999ff] fill-current">
-                                    <path d="M.001 0v24h24V0H.001zm3.766 4.604h5.278c2.404 0 4.093 1.137 4.093 3.321 0 2.219-1.689 3.356-4.093 3.356H6.182v4.757H3.767V4.604zm2.415 2.126v2.457h2.641c1.173 0 1.936-.454 1.936-1.228 0-.79-.763-1.229-1.936-1.229H6.182zm8.567 4.004h2.296v.933h.068c.408-.669 1.192-1.077 2.16-1.077.567 0 1.055.124 1.44.374l-.794 2.155c-.329-.193-.76-.283-1.157-.283-.93 0-1.6 0.635-1.6 1.848v3.355h-2.413V10.734z"/>
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-[#00005b] flex items-center justify-center p-2.5 shadow-sm border border-indigo-900">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobepremierepro.svg" alt="Adobe Premiere Pro" class="w-full h-full filter invert brightness-200">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Adobe Premiere Pro</h4>
@@ -641,10 +716,10 @@
                         </div>
                     </div>
 
-                    <!-- DaVinci Resolve Icon -->
+                    <!-- DaVinci Resolve -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-slate-900 flex items-center justify-center p-1.5 shadow-sm border border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center p-2 shadow-sm border border-slate-800">
                                 <svg viewBox="0 0 100 100" class="w-full h-full">
                                     <circle cx="33" cy="38" r="22" fill="#eb4034" />
                                     <circle cx="67" cy="38" r="22" fill="#3b82f6" />
@@ -658,13 +733,11 @@
                         </div>
                     </div>
 
-                    <!-- Final Cut Pro Icon -->
+                    <!-- Final Cut Pro -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-rose-600 via-pink-500 to-amber-400 flex items-center justify-center p-2 shadow-sm text-white">
-                                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H9l2 4H8L6 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-600 via-pink-500 to-amber-400 flex items-center justify-center p-2.5 shadow-sm text-white">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apple.svg" alt="Final Cut Pro" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Final Cut Pro</h4>
@@ -673,13 +746,11 @@
                         </div>
                     </div>
 
-                    <!-- CapCut Icon -->
+                    <!-- CapCut -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-black flex items-center justify-center p-2 shadow-sm text-white border border-slate-800">
-                                <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h18M3 16h18" />
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-black flex items-center justify-center p-2.5 shadow-sm text-white border border-slate-800">
+                                <img src="Capcut.png" alt="CapCut" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">CapCut</h4>
@@ -700,13 +771,11 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
-                    <!-- Photoshop Icon -->
+                    <!-- Photoshop -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-[#001e36] flex items-center justify-center p-2 shadow-sm border border-sky-950">
-                                <svg viewBox="0 0 24 24" class="w-full h-full text-[#31a8ff] fill-current">
-                                    <path d="M.001 0v24h24V0H.001zm3.766 4.604h5.278c2.404 0 4.093 1.137 4.093 3.321 0 2.219-1.689 3.356-4.093 3.356H6.182v4.757H3.767V4.604zm2.415 2.126v2.457h2.641c1.173 0 1.936-.454 1.936-1.228 0-.79-.763-1.229-1.936-1.229H6.182zm9.14 4.542c1.373 0 2.37.521 2.89 1.418v-1.304h2.296v6.234c0 2.22-1.577 3.127-3.606 3.127-1.747 0-3.073-.612-3.481-1.894l2.121-.68c.215.658.828.986 1.633.986.85 0 1.258-.385 1.258-1.076v-.613c-.453.692-1.293 1.077-2.313 1.077-1.928 0-3.232-1.395-3.232-3.628 0-2.29 1.372-3.647 3.434-3.647zm.42 1.938c-.998 0-1.633.646-1.633 1.7 0 1.03.635 1.689 1.633 1.689.986 0 1.633-.658 1.633-1.688 0-1.055-.647-1.701-1.633-1.701z"/>
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-[#001e36] flex items-center justify-center p-2.5 shadow-sm border border-sky-950">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobephotoshop.svg" alt="Adobe Photoshop" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Adobe Photoshop</h4>
@@ -715,13 +784,11 @@
                         </div>
                     </div>
 
-                    <!-- Affinity Icon -->
+                    <!-- Affinity -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-teal-600 flex items-center justify-center p-2 shadow-sm text-white">
-                                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13H5.5L12 6.5z"/>
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-teal-600 flex items-center justify-center p-2.5 shadow-sm text-white">
+                                <img src="Affinity.png" alt="Affinity" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Affinity</h4>
@@ -730,13 +797,11 @@
                         </div>
                     </div>
 
-                    <!-- Procreate Pocket Icon -->
+                    <!-- Procreate Pocket -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-indigo-600 flex items-center justify-center p-2 shadow-sm text-white">
-                                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.996.996 0 00-1.41 0L9 13.59l3.41 3.41 10.3-10.3a.996.996 0 000-1.41z"/>
-                                </svg>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-indigo-600 flex items-center justify-center p-2.5 shadow-sm text-white">
+                                <img src="Procreate.png" alt="Procreate" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Procreate Pocket</h4>
@@ -745,11 +810,11 @@
                         </div>
                     </div>
 
-                    <!-- Canva Icon -->
+                    <!-- Canva -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
                         <div class="space-y-3">
-                            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center p-2 shadow-sm text-white font-extrabold text-lg">
-                                C
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center p-2.5 shadow-sm text-white">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg" alt="Canva" class="w-full h-full filter invert">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-sm">Canva</h4>
@@ -773,14 +838,12 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     
-                    <!-- ChatGPT / OpenAI Icon -->
+                    <!-- ChatGPT / OpenAI -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm card-hover space-y-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center p-2 shadow-sm">
-                                    <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3424 8.5856a4.466 4.466 0 0 1 2.3372-1.9729v5.6725a.7854.7854 0 0 0 .3927.6813l5.8333 3.3685-2.0152 1.1638a.0757.0757 0 0 1-.071 0l-4.8303-2.7914A4.4944 4.4944 0 0 1 2.3424 8.5856zm16.5963 3.8558l-5.838-3.3685 2.0152-1.1639a.0757.0757 0 0 1 .071 0l4.8303 2.7914a4.4992 4.4992 0 0 1-.6813 8.1023v-5.682a.7854.7854 0 0 0-.3973-.6793zm2.716-3.1373l-.1419-.0852-4.783-2.7582a.7712.7712 0 0 0-.7806 0L10.1064 9.829V7.4967a.0804.0804 0 0 1 .0332-.0615l4.8303-2.7914a4.4992 4.4992 0 0 1 6.6754 4.6602zm-12.5558 3.8653l-2.6214-1.514 2.6214-1.514 2.6214 1.514-2.6214 1.514z"/>
-                                    </svg>
+                                <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center p-2.5 shadow-sm">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="OpenAI GPT" class="w-full h-full filter invert">
                                 </div>
                                 <div>
                                     <h4 class="font-extrabold text-slate-900 text-base">GPT</h4>
@@ -801,14 +864,12 @@
                         </div>
                     </div>
 
-                    <!-- Google Gemini Icon -->
+                    <!-- Google Gemini -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm card-hover space-y-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-amber-400 text-white flex items-center justify-center p-2 shadow-sm">
-                                    <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 24C12 17.3726 17.3726 12 24 12C17.3726 12 12 6.62742 12 0C12 6.62742 6.62742 12 0 12C6.62742 12 12 17.3726 12 24Z"/>
-                                    </svg>
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-amber-400 text-white flex items-center justify-center p-2.5 shadow-sm">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlegemini.svg" alt="Google Gemini" class="w-full h-full filter invert">
                                 </div>
                                 <div>
                                     <h4 class="font-extrabold text-slate-900 text-base">Gemini</h4>
@@ -905,23 +966,23 @@
     <div id="video-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-5 relative">
             
-            <button onclick="toggleVideoModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500">
                 ✕
             </button>
 
             <div>
-                <h3 class="text-xl font-extrabold text-slate-900">Ganti Link Video Utama</h3>
-                <p class="text-xs text-slate-500 mt-1">Masukkan URL YouTube atau Embed link video portfolio Anda.</p>
+                <h3 id="modal-heading" class="text-xl font-extrabold text-slate-900">Ganti Link Video Portfolio</h3>
+                <p class="text-xs text-slate-500 mt-1">Masukkan URL YouTube atau pautan fail Google Drive (contoh: https://drive.google.com/file/d/.../view atau YouTube watch URL).</p>
             </div>
 
             <div class="space-y-3">
-                <input type="text" id="video-url-input" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50">
+                <input type="text" id="video-url-input" placeholder="https://drive.google.com/file/d/xxx/view atau https://youtube.com/watch?v=xxx" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50">
                 
                 <div class="flex items-center gap-2">
-                    <button onclick="updateVideoUrl()" class="flex-1 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-all">
+                    <button onclick="saveVideoUrl()" class="flex-1 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-all">
                         Simpan &amp; Putar
                     </button>
-                    <button onclick="toggleVideoModal()" class="px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs">
+                    <button onclick="closeVideoModal()" class="px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs">
                         Batal
                     </button>
                 </div>
@@ -932,36 +993,103 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+        let currentEditingId = 'main';
+
         function scrollToVideo() {
             document.getElementById('video-player').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function toggleVideoModal() {
+        function openVideoModal(targetId) {
+            currentEditingId = targetId;
             const modal = document.getElementById('video-modal');
-            modal.classList.toggle('hidden');
-        }
+            const heading = document.getElementById('modal-heading');
+            const input = document.getElementById('video-url-input');
 
-        function updateVideoUrl() {
-            const input = document.getElementById('video-url-input').value.trim();
-            if (!input) return;
-
-            let embedUrl = input;
-            if (input.includes('youtube.com/watch?v=')) {
-                const videoId = input.split('v=')[1].split('&')[0];
-                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            } else if (input.includes('youtu.be/')) {
-                const videoId = input.split('youtu.be/')[1].split('?')[0];
-                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            if (targetId === 'main') {
+                heading.innerText = 'Ganti Link Video Utama';
+                input.value = document.getElementById('main-video-iframe').src;
+            } else {
+                heading.innerText = 'Ganti Link Video Proyek Ini';
+                const currentUrlElem = document.getElementById(`url-${targetId}`);
+                input.value = currentUrlElem ? currentUrlElem.innerText : '';
             }
 
-            document.getElementById('main-video-iframe').src = embedUrl;
-            toggleVideoModal();
+            modal.classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('video-modal').classList.add('hidden');
+        }
+
+        function formatVideoEmbed(inputUrl) {
+            if (!inputUrl) return '';
+            let url = inputUrl.trim();
+
+            // Google Drive File Link Handling
+            if (url.includes('drive.google.com/file/d/')) {
+                const match = url.match(/file\/d\/([a-zA-Z0-9_-]+)/);
+                if (match && match[1]) {
+                    return `https://drive.google.com/file/d/${match[1]}/preview`;
+                }
+            }
+
+            // YouTube Link Handling
+            if (url.includes('youtube.com/watch?v=')) {
+                const videoId = url.split('v=')[1].split('&')[0];
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (url.includes('youtu.be/')) {
+                const videoId = url.split('youtu.be/')[1].split('?')[0];
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (url.includes('youtube.com/embed/')) {
+                return url;
+            }
+
+            return url;
+        }
+
+        function saveVideoUrl() {
+            const rawUrl = document.getElementById('video-url-input').value.trim();
+            if (!rawUrl) return;
+
+            const embedUrl = formatVideoEmbed(rawUrl);
+
+            if (currentEditingId === 'main') {
+                document.getElementById('main-video-iframe').src = embedUrl;
+            } else {
+                const urlText = document.getElementById(`url-${currentEditingId}`);
+                const externalLink = document.getElementById(`link-${currentEditingId}`);
+                if (urlText) urlText.innerText = rawUrl;
+                if (externalLink) externalLink.href = rawUrl;
+
+                document.getElementById('main-video-iframe').src = embedUrl;
+            }
+
+            closeVideoModal();
             scrollToVideo();
         }
 
-        function playProjectVideo(url) {
-            document.getElementById('main-video-iframe').src = url + '?autoplay=1';
+        function playProjectVideoFromCard(cardId, title) {
+            const urlText = document.getElementById(`url-${cardId}`).innerText.trim();
+            const embedUrl = formatVideoEmbed(urlText);
+            
+            document.getElementById('main-video-iframe').src = embedUrl;
+            document.getElementById('now-playing-title').innerText = title;
             scrollToVideo();
+        }
+
+        // Handle Image Upload Helper
+        function handleImageUpload(event, targetImgId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgElement = document.getElementById(targetImgId);
+                    if (imgElement) {
+                        imgElement.src = e.target.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 </body>
